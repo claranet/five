@@ -1,0 +1,10 @@
+---
+common_rule:
+    partition: Common
+    apiAnonymous: |
+        when HTTP_REQUEST {
+            log local0. "start irule"
+            if { [HTTP::host] contains "/someurl" }{
+                HTTP::respond 301 Location "https://some_other_url.fr"
+            }
+        }

@@ -1,0 +1,38 @@
+---
+### part_01 / rd4000
+pool01:
+    description: test
+    monitor: http
+    members:
+        - __Test_Five_node11:80
+        - name: __Test_Five_node12:80
+          monitor: tcp
+pool02:
+    monitor: __Test_Five_http_user
+    loadBalancingMethod: ratio-node
+    members:
+        - name: __Test_Five_node11:80
+          ratio: 2
+          description: member with ratio 2
+        - name: __Test_Five_node12:80
+          ratio: 4
+          description: I have a bigger one
+
+### part_02 / rd4001
+pool_no_members: {}     ## Raise NoContextFound Exception (no members .. )
+pool04:
+    description: priogroup
+    monitor: tcp
+    minActiveMembers: 1
+    members:
+        - name: __Test_Five_node21:4000
+          priorityGroup: 2
+          description: master
+        - name: __Test_Five_node22:4001
+          description: Slave
+          monitor: http
+
+### part_03 / rd4xxx
+pool05:
+    description: test v6
+    members: ['__Test_Five_node31:80', '__Test_Five_node32:80']

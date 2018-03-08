@@ -1,0 +1,14 @@
+---
+__Test_Five_http_user:
+    _type: http
+    send: GET /monitor/check\r\n
+    recv: UP
+__Test_Five_http_spec:
+    _type: http
+    defaultsFrom: __Test_Five_http_user
+    send: GET /monitor/new_check\r\n
+__Test_Five_tcp_user:
+    _type: tcp
+    defaultsFrom: tcp
+    interval: 3
+    timeout: 10

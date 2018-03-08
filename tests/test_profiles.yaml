@@ -1,0 +1,23 @@
+---
+common_http-xff:
+    _type: http
+    insertXforwardedFor: enabled
+
+common_http-xff-xfproto-http:
+    _type: http
+    defaultsFrom: __Test_Five_common_http-xff
+    headerErase: X-Forwarded-Proto
+    headerInsert: "X-Forwarded-Proto: http"
+
+common_http-xff-xfproto-https:
+    _type: http
+    defaultsFrom: __Test_Five_common_http-xff
+    headerErase: X-Forwarded-Proto
+    headerInsert: "X-Forwarded-Proto: https"
+
+common_http-akamai-like:
+    _type: http
+    acceptXff: enabled
+    xffAlternativeNames:
+        - True-Client-IP
+#tcp

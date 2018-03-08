@@ -1,0 +1,140 @@
+---
+#required
+basename: __Test_Five_archi
+address: 10.1.40.100
+
+#optional
+#all define object are created in the find partition
+monitors:
+    __Test_Five_spec_monitor:
+        _type: http
+        send: GET /monitor/check\r\n
+        recv: IT WORKS
+persistences:
+    __Test_Five_archi_cookie:
+        _type: cookie
+        cookieName: VOLT_SESSION
+        matchAcrossVirtuals: enabled
+    __Test_Five_archi_source_addr:
+        _type: source_addr
+        matchAcrossServices: enabled
+profiles:
+    __Test_Five_spec_http_profiles:
+        _type: http
+        headerInsert: "WeirdThing: On"
+        acceptXff: enabled
+        xffAlternativeNames:
+            - Client-IP
+    __Test_Five_ssl_root_01:
+        _type: client_ssl
+        create_files: __Test_Five_archi
+        key: |
+            LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBNUlMZU9tdkI0
+            NGwxVU5jdzlBV1Y2WE5tMEkxbG55QXluaVorODAwU28vbk9WY3pOCmhiQnB2S0ZNZ0hUTWIyNGUy
+            clJCK0ljVkRsd2V4WTZ0L1RQM25uaDlPTWtuN1R5TXNRN0M3eHNzVW9nODY4MmcKaDkzclZaL0g2
+            S3drU25ycEZUbmdNQ0FxUDBNNVRGd0t1VGpCYTR6OXFIb3NkcDZNUCtndlE0clJjbWZ4V3NBMwpo
+            THZJc3F4cW9GS2o3aWxTSXM4Mk1RV1U1VTVBUUJoS0JUOFFFSWFLZUdsa3d0MStwTjJxS2ZrV21t
+            eFg1VzYrClFDK29zR0RtaWR2N2tGSEg4NTZoZ016K0JybFY3QncyUGw4aGswZWpOazVHR2hESFpn
+            S25ieElUdzcwUko2THIKNWM3TWh2K2xxcGx0NjM5SThpLzhGa2x4YjdrSFpmdzQwOUVrTHdJREFR
+            QUJBb0lCQUF4a1ZHelNueWNac3pUNQpGbnlGT1FYNTdoOXRLNCtmalY4cU0wUTZiOEpZcjZuVGUy
+            bStrVjFiV2V5MWFNaTZMZzRxTEZHdjhhSmZ1SU42CkkxRlIyaUhMNHU2TGFoRGhjYmZBVnkza1NW
+            a0libFZUUjF0VzI0WS9MZlllTDdHaVRMV0w5KzVrTUNaU0hPOVoKSm5PNDhqUkU1eFNWMjRkclBh
+            dlJpWTZlSHBHWG16RXV1UUxUbTkwUTlYRDFTRk9FWXl4TGRPNHpITEw4QzVwRApJT3pCYzFGRDZZ
+            Rm50MHhmQXFpc1IxNGx1OWU2TUMzNkdld29sTWFBMHBVL2g4MGRsN3c5T3F3aUxDKzdPNlIyCmpp
+            cExXNlZaU3FENFhRYmhMK3hVWERVZ24wejJOcGxaSXNBODFOWTl1VXhZeWRpOGUxV0l1WGZOVkc3
+            bGlYZG4KcHRROXpPRUNnWUVBOUZYbXBhdjREdHl0YU1QRWdiMzNIUldJbDcva0FPV0dpYWFFZDB5
+            MGM2SnNxZU1ZR2wwQgpZYmFXRlgremwzNVRxTitGWXNrK1MvM2pEZ3AvK1piM0E5OHA4dlkrUWRY
+            TWhZbktBczdJUm5Vbm5jZGt4UnFyCmM5KzRKNWE1MWpQR3JzM21acDJlYUlpMVE4SmdCWFhrNGoz
+            MFRCYVJCM2xtL3ZxK1ZKYU94U2tDZ1lFQTcydVMKclVCTkhNSXpRLzRSMjlQeHd1ZWhTbFYzenFB
+            MmRKak44R2Y3c2Z6c1REOWVOS05hUE8rQ05pRUxTN2ZUaWtadQplcEJDK29NZnNiMU1YNUdIWFRz
+            anB4aUs5Mmh1WHl3am41RG05Wk1KWjZwV3RESE5iUTc4aGNuZzdPckIxVE5LCmFtTW9yWWhETm1V
+            ZTR2SjdiQzFpek9ycTlvMG9GWnJZbVRDdU1aY0NnWUJnV2crZWZYWlF4ZzFNSndjeThxcWsKT1gy
+            bitlLzd1b2VYZUtiOE5LOWtla1RIcWRvemEwSEVPckJzd2ZNY1pxQ3ZFNVlTSXJJQ1haaFFUU3V5
+            VFNvVAp5TWxPR25UcW1Wa1J3QWg5bXZXM2N6T3dNSlU0ZFEvdm5lV05GdzhwdlRrNGJkSFIzWTQr
+            UXNyWWNhcFQvTzNKCm1nemdoSFdrc09kQTNiaDR1dmFLSVFLQmdRQ1ZVVWpNSm9NeFFXakpxZVlu
+            YkpxbURPSUp3eDRTVHRkSGhwbEIKcXdoTnJFa1BFS0pIUCsyaWZWbC9Pc0tadVk4RCtRTWtDMTdL
+            Y0FiUFNoa2NyVjEzNXM5SWdrVUJJaTlieWVKNQp2TnhlSWhMR2hYVEhzeHZFUFlsK1F6YTFhMy94
+            NEtnemk1NHVCQUt2SlFmTFVLRnJDUzlLVCtTMFdicTdKclNaCmJjUG1Cd0tCZ1FEYUd4bisrOGx1
+            MXZnOG00blZRWlg3RytYbkZDTUl0MWtCTS8rajVwalJIenJQMWp0R1p5UDMKUWRUdXREUndvOGRS
+            OS94ZEM1NmtQREZUOEptRC9Ld2ZZWWdScFN1MDZ1NHRnSWNzdUo2L2lUUUtjb1Vad2tJOAptMlZU
+            S3pSN20yTlRXYS9oREhNSU5ic1I3VllmOHRFSnRQQjhNcmZobWltV3ZWQ3RVQWcvN2c9PQotLS0t
+            LUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+        cert: |
+            LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURWakNDQWo0Q0NRQ0p3L3BKT3RZZUFUQU5C
+            Z2txaGtpRzl3MEJBUXNGQURCdE1Rc3dDUVlEVlFRR0V3SkcKVWpFTE1Ba0dBMVVFQ0F3Q1JsSXhE
+            ekFOQmdOVkJBY01CbEpsYm01bGN6RU5NQXNHQTFVRUNnd0VSbWwyWlRFTgpNQXNHQTFVRUN3d0VS
+            bWwyWlRFTk1Bc0dBMVVFQXd3RVJtbDJaVEVUTUJFR0NTcUdTSWIzRFFFSkFSWUVSbWwyClpUQWVG
+            dzB4TnpFeU1qQXhNVEEwTWpoYUZ3MHhPREV5TWpBeE1UQTBNamhhTUcweEN6QUpCZ05WQkFZVEFr
+            WlMKTVFzd0NRWURWUVFJREFKR1VqRVBNQTBHQTFVRUJ3d0dVbVZ1Ym1Wek1RMHdDd1lEVlFRS0RB
+            UkdhWFpsTVEwdwpDd1lEVlFRTERBUkdhWFpsTVEwd0N3WURWUVFEREFSR2FYWmxNUk13RVFZSktv
+            WklodmNOQVFrQkZnUkdhWFpsCk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNn
+            S0NBUUVBNUlMZU9tdkI0NGwxVU5jdzlBV1YKNlhObTBJMWxueUF5bmlaKzgwMFNvL25PVmN6Tmhi
+            QnB2S0ZNZ0hUTWIyNGUyclJCK0ljVkRsd2V4WTZ0L1RQMwpubmg5T01rbjdUeU1zUTdDN3hzc1Vv
+            Zzg2ODJnaDkzclZaL0g2S3drU25ycEZUbmdNQ0FxUDBNNVRGd0t1VGpCCmE0ejlxSG9zZHA2TVAr
+            Z3ZRNHJSY21meFdzQTNoTHZJc3F4cW9GS2o3aWxTSXM4Mk1RV1U1VTVBUUJoS0JUOFEKRUlhS2VH
+            bGt3dDErcE4ycUtma1dtbXhYNVc2K1FDK29zR0RtaWR2N2tGSEg4NTZoZ016K0JybFY3QncyUGw4
+            aAprMGVqTms1R0doREhaZ0tuYnhJVHc3MFJKNkxyNWM3TWh2K2xxcGx0NjM5SThpLzhGa2x4Yjdr
+            SFpmdzQwOUVrCkx3SURBUUFCTUEwR0NTcUdTSWIzRFFFQkN3VUFBNElCQVFDZkl0NFZLYXVvYWVh
+            TVBpZU5ud3VwWG5va0tKVVMKSHg4YjIwVmt1Ky9Qc1FoU0REMmFkajR6QkJIZzVWMjR4WDdpMzNR
+            by95dWowemcwSzR6VWwwNWIybFlvNGd4OQpLc0swNUdzTEhRbzN2bURIdWFUT25EZkFJd3ZqcHNw
+            ZXE1a3Y0ZytIK3B6aHBMSWdyNE5ubGlEelVOdk9KUzZECnExVWhBRDJKWDdsRmRrTGREQnB1Q2lD
+            YmoyODlNTWJ5SWRpQ2dVbjY4WXlkV2VJVnFpRXFyb00vMkZoaUVoTDIKU0VMKzlFdTBucmNOZk1T
+            TmdZSTZ0OXUrQ0hMRnhjUk1CMGMxYjFnQW9iRnNJTFAwMEhUQUdUajF0YUxXaklwRgowREh2TGgr
+            a3ZIZWpyQnBoaGVQUnVXU3RBRDZDd0hXQTNhOUpNeTY3N2lPR1RlcXZZQ1htUG96agotLS0tLUVO
+            RCBDRVJUSUZJQ0FURS0tLS0tCg==
+    __Test_Five_ssl_default_sni:
+        _type: client_ssl
+        defaultsFrom: __Test_Five_ssl_root_01
+        sniDefault: true
+    __Test_Five_ssl_01:
+        _type: client_ssl
+        defaultsFrom: __Test_Five_ssl_root_01
+        serverName: 01.toto.fr
+    __Test_Five_ssl_02:
+        _type: client_ssl
+        defaultsFrom: __Test_Five_ssl_root_01
+        serverName: 02.toto.fr
+rules:
+    __Test_Five_rule_archi:
+        apiAnonymous: |
+            when HTTP_REQUEST {
+                if  { [HTTP::host] contains "/someurl" }{
+                    log local0. "debug irule: match /someurl - redirect"
+                    HTTP::respond 301 Location "https://some_other_url.fr"
+                }
+            }
+
+#required
+nodes:
+    __Test_Five_archi_node01: 10.1.41.100
+    __Test_Five_archi_node02:
+        address: 10.1.41.191
+        description: 'complex node'
+#required
+#each key is a listen port for 'address' (so one key = one virtual server)
+#option in the dictionnary may apply for virtual address or for pool
+services:
+    80:
+        types: ['internal', 'external']
+        profiles: ['http', 'tcp']
+        rules: ['__Test_Five_rule_archi']
+        monitor: __Test_Five_spec_monitor
+        persist: __Test_Five_archi_cookie
+    443:
+        profiles:
+            - tcp
+            - __Test_Five_spec_http_profiles
+            - __Test_Five_ssl_default_sni
+            - __Test_Five_ssl_01
+            - __Test_Five_ssl_02
+        persist: __Test_Five_archi_cookie
+        pool_port: 80
+    444: {}
+    2201:
+        basename: __Test_Five_archi_node01
+        pool_description: 'pool desc'
+        pool_port: 22
+        members:
+            - __Test_Five_archi_node01:22
+#suffix:
+#no_snat:

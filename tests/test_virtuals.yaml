@@ -1,0 +1,27 @@
+---
+### part01
+vip01_01:
+    address: 10.1.40.1
+    port: 80
+    profiles: ['http', 'tcp']
+    pool: __Test_Five_pool01
+    rules: ['__Test_Five_common_rule']
+    persist: source_addr
+
+### part02
+vip02_01:
+    destination: 10.2.42.1:80
+vip02_11:
+    destination: 10.2.42.2:80
+    pool: __Test_Five_pool04
+    profiles: tcp
+
+### part03 - v6
+vip03_01:
+    destination: a:b:c:d:4:6:1:1.80
+    pool: __Test_Five_pool05
+vip03_02:
+    address: a:b:c:d:4:6:1:2
+    port: 80
+    pool: __Test_Five_pool05
+

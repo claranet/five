@@ -1,0 +1,5 @@
+five:
+    script:
+        - /usr/local/bin/sonar-scanner
+    tags:
+        - test-ci

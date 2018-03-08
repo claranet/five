@@ -1,0 +1,70 @@
+---
+partitions:
+    part_01:
+        route_domains:
+            p01_rd_4000:
+                id: 4000
+                vlans:
+                    rd4000_vlan_external_4040:
+                        id: 4040
+                        selfips:
+                            0: 10.1.40.252/24
+                            1: 10.1.40.253/24
+                            vip: 10.1.40.254/24
+                    rd4000_vlan_internal_4041:
+                        id: 4041
+                        selfips:
+                            0: 10.1.41.252/24
+                            1: 10.1.41.253/24
+                            vip: 10.1.41.254/24
+                default_rd: True
+
+    part_02:
+        route_domains:
+            p02_rd_4001:
+                id: 4001
+                vlans:
+                    rd4001_vlan_4042:
+                        id: 4042
+                        selfips:
+                            0: 10.2.42.252/24
+                            1: 10.2.42.253/24
+                            vip: 10.2.42.254/24
+                    rd4001_vlan_4043:
+                        id: 4043
+                        selfips:
+                            0: 10.2.43.252/24
+                            1: 10.2.43.253/24
+                            vip: 10.2.43.254/24
+            p02_rd_4002:
+                id: 4002
+                vlans:
+                    rd4002_vlan_4044:
+                        id: 4044
+                        selfips:
+                            0: 10.2.44.252/24
+                            1: 10.2.44.253/24
+                            vip: 10.2.44.254/24
+                    rd4002_vlan_4045:
+                        id: 4045
+                        selfips:
+                            0: 10.2.45.252/24
+                            1: 10.2.45.253/24
+                            vip: 10.2.45.254/24
+    part_03:
+        route_domains:
+            p03_rd_4003:
+                id: 4003
+                vlans:
+                    rd4003_vlan_4046:
+                        id: 4046
+                        selfips:
+                            0: a:b:c:d:4:6:0:1/96
+                            1: a:b:c:d:4:6:0:2/96
+                            vip: a:b:c:d:4:6:0:ff/96
+                    rd4003_vlan_4047:
+                        id: 4047
+                        selfips:
+                            0: a:b:c:d:4:7:0:1/96
+                            1: a:b:c:d:4:7:0:2/96
+                            vip: a:b:c:d:4:7:0:ff/96

@@ -1,0 +1,9 @@
+---
+## list of all fqdn equipments
+equipments:
+    - lb1-client1.fqdn.fr
+    - lb1-client2.fqdn.fr
+## user / passwd (root for all F5 - use as reference bigip)
+user: admin
+passwd: password
+
