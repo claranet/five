@@ -322,13 +322,13 @@ class Archi(Base):
                 intdata = copy(data)
                 intdata.update({'internal':True})
                 virtual = self._parse_virtual_param(service, intdata)
-            if virtual.name not in [vs.name for vs in virtuals]:
-                virtuals.append(virtual)
+                if virtual.name not in [vs.name for vs in virtuals]:
+                    virtuals.append(virtual)
             ## external
             if 'external' in data.get('types', []) or not data.get('types'):
                 virtual = self._parse_virtual_param(service, data)
-            if virtual.name not in [vs.name for vs in virtuals]:
-                virtuals.append(virtual)
+                if virtual.name not in [vs.name for vs in virtuals]:
+                    virtuals.append(virtual)
         return virtuals
 
     def _parse_raw_services(self):
